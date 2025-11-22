@@ -12,12 +12,14 @@ const data = recipes.map(recipe => ({
 }))
 
 
-function getNextId(items) {
+
+const getNextId = (items) => {
   const ids = items
     .map(r => Number(r.id))
     .filter(Number.isFinite);
-  return ids.length ? Math.max(...ids) + 1 : 1;
+  return ids.length ? Math.max(...ids) + 1 : 1
 }
+
 
 
 // GET /api/v1/recipes - Retrieve all recipes
@@ -47,4 +49,4 @@ router.get('/recipe/:id', (request, response) => {
     else response.send({ message: `Recipe with this ID ${id} not found` })
 })
 
-module.exports = router;
+module.exports = router
